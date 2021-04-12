@@ -10,7 +10,7 @@ public class CharacterMovement : MonoBehaviour
 
     public void Update()
     {
-        this.rotation = new Vector3(0, Input.GetAxisRaw("Horizontal") * _rotationSpeed * Time.deltaTime, 0);
+        this.rotation = new Vector3(0, 1 * _rotationSpeed * Time.deltaTime, 0);
 
         Vector3 move = new Vector3(0, 0, Input.GetAxisRaw("Vertical") * Time.deltaTime);
         move = this.transform.TransformDirection(move);
