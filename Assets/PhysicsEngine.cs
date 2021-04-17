@@ -6,8 +6,8 @@ public class PhysicsEngine : MonoBehaviour
 {
     public float LAngularMomentum;
     public float MMass;
-    [Range(0.4f, 10.0f)]
-    public float RRadius;
+    [Range(0.4f, 0.9f)]
+    public float RRadius = 0.85f;
     public float wOmega;
 
     [SerializeField]
