@@ -139,19 +139,7 @@ public class PhysicsEngine : MonoBehaviour
 
     private void Check_AnimationUpdate()
     {
-        if (RRadius > oldRadius)
-        {
-            // play animation OpenArms
-            //animator.Play("OpenArms");
-            animator.Play("WideOpenAnimation");
-            animator.SetBool("AllOpen", true);
-        }
-        if (RRadius < oldRadius)
-        {
-            // play animation CloseArms
-            animator.Play("CloseArms");
-            animator.SetBool("AllOpen", false);
-        }
+        animator.SetFloat("ControlAnimation", RRadius * 0.744f);
     }
 
 }

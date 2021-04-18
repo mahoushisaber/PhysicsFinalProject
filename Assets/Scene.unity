@@ -2537,7 +2537,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   LAngularMomentum: 6000
   MMass: 55
-  RRadius: 0.768
+  RRadius: 0.754
   wOmega: 26
   IInertia: 0
   animator: {fileID: 1404424851}
@@ -6972,6 +6972,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 02cefef153cc6f8419240291a0db8f7f, type: 2}
+    - target: {fileID: 5866666021909216657, guid: b00830e13a91cea4ca67207a66c8e22b, type: 3}
+      propertyPath: m_CullingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6000407479487422213, guid: b00830e13a91cea4ca67207a66c8e22b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 5.1544466
