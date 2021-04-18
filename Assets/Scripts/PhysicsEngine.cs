@@ -20,6 +20,8 @@ public class PhysicsEngine : MonoBehaviour
 
     const float c_MinRadius = 0.4f;
 
+    //Animations
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +65,7 @@ public class PhysicsEngine : MonoBehaviour
         // If Radius is changing than calculate Omega
         if (oldRadius != RRadius)
         {
+            Check_AnimationUpdate();
             oldRadius = RRadius;
 
             CheckIf_L_NeedsUpdate();
@@ -131,6 +134,23 @@ public class PhysicsEngine : MonoBehaviour
         {
             // L = mr^2w
             LAngularMomentum = MMass * Mathf.Pow(RRadius, 2.0f) * wOmega;
+        }
+    }
+
+    private void Check_AnimationUpdate()
+    {
+        if (RRadius > oldRadius)
+        {
+            // play animation OpenArms
+            //animator.Play("OpenArms");
+            animator.Play("WideOpenAnimation");
+            animator.SetBool("AllOpen", true);
+        }
+        if (RRadius < oldRadius)
+        {
+            // play animation CloseArms
+            animator.Play("CloseArms");
+            animator.SetBool("AllOpen", false);
         }
     }
 
