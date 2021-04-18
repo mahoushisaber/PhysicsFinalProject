@@ -8810,6 +8810,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   physicsEngineScript: {fileID: 481341225}
+  animator: {fileID: 1404424851}
 --- !u!95 &1404424851 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: b00830e13a91cea4ca67207a66c8e22b, type: 3}

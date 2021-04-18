@@ -65,7 +65,7 @@ public class PhysicsEngine : MonoBehaviour
         // If Radius is changing than calculate Omega
         if (oldRadius != RRadius)
         {
-            Check_AnimationUpdate();
+            //Check_AnimationUpdate();
             oldRadius = RRadius;
 
             CheckIf_L_NeedsUpdate();
@@ -137,9 +137,5 @@ public class PhysicsEngine : MonoBehaviour
         }
     }
 
-    private void Check_AnimationUpdate()
-    {
-        animator.SetFloat("ControlAnimation", RRadius * 0.744f);
-    }
 
 }

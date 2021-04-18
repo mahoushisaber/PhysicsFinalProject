@@ -5,7 +5,12 @@ public class CharacterMovement : MonoBehaviour
     
     public PhysicsEngine physicsEngineScript;
     private Vector3 rotation;
-
+    public Animator animator;
+    private float oldRadius;
+    public void Start()
+    {
+        oldRadius = 0f;
+    }
     public void Update()
     {
         float angularVelocityOnBody = physicsEngineScript.wOmega;
@@ -16,5 +21,11 @@ public class CharacterMovement : MonoBehaviour
         //_controller.Move(move * _speed);
         this.transform.Rotate(this.rotation);
 
+        // Blend animation
+        if (oldRadius != physicsEngineScript.RRadius)
+        {
+            oldRadius = physicsEngineScript.RRadius;
+            animator.SetFloat("ControlAnimation", physicsEngineScript.RRadius * 0.744f);
+        }
     }
 }
