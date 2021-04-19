@@ -41,19 +41,19 @@ public class HUDMgr : MonoBehaviour
         AngleMomentumText.text = string.Format("Angular Momentum: {0}", physicsEngineScript.LAngularMomentum);
         AngleVelocityText.text = string.Format("Angular Velocity: {0}", physicsEngineScript.wOmega);
         ArmRadiusText.text = string.Format("Arm Radius: {0}", physicsEngineScript.RRadius);
-        InertiaText.text = string.Format("Body Mass: {0}", physicsEngineScript.IInertia);
+        InertiaText.text = string.Format("Inertia: {0}", physicsEngineScript.IInertia);
 
         BodyMassSlider.value = physicsEngineScript.MMass;
         BodyRadiusSlider.value = physicsEngineScript.BodyRadius;
         ArmMassSlider.value = physicsEngineScript.RodMass;
-        AngularMomentumSlider.value = physicsEngineScript.wOmega;
+        AngularMomentumSlider.value = physicsEngineScript.LAngularMomentum;
         ArmRadiusSlider.value = physicsEngineScript.RRadius;
 
-        oldBMass = BodyMassSlider.value;
-        oldBRadius = BodyRadiusSlider.value;
-        oldArmMass = ArmMassSlider.value;
-        oldAglMomentum = AngularMomentumSlider.value;
-        oldArmRadius = ArmRadiusSlider.value;
+        oldBMass = 0.0f;
+        oldBRadius = 0.0f;
+        oldArmMass = 0.0f;
+        oldAglMomentum = 0.0f;
+        oldArmRadius = 0.0f;
     }
 
     // Update is called once per frame
