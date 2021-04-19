@@ -7,8 +7,12 @@ public class PhysicsEngine : MonoBehaviour
     public float LAngularMomentum;
     public float MMass;
     [Range(0.4f, 0.9f)]
-    public float RRadius = 0.85f;
+    // radius of the rod
+    public float RRadius = 0.9f;
     public float wOmega;
+    //new radius of the body
+    public float BodyRadius = 0.11f;
+    public float RodMass = 3.75f;
 
     [SerializeField]
     private float IInertia;
@@ -49,7 +53,7 @@ public class PhysicsEngine : MonoBehaviour
             if (MMass != 0.0f && RRadius != 0.0f)
             { 
                 // L = mr^2w --> w = L/mr^2
-                wOmega = LAngularMomentum / (MMass * Mathf.Pow(RRadius, 2.0f));
+                wOmega = LAngularMomentum / (MMass * Mathf.Pow((RRadius + BodyRadius), 2.0f));
             }
             else // (MMass == 0.0f || RRadius == 0.0f)
             {
@@ -58,8 +62,8 @@ public class PhysicsEngine : MonoBehaviour
             oldOmega = wOmega;
 
             // Because radius change recalculate intertia
-            // I = mr^2
-            IInertia = MMass * Mathf.Pow(RRadius, 2.0f);
+            // I = mr^2 / 2 + 2(mL^2 / 3)
+            IInertia = (MMass * Mathf.Pow(BodyRadius, 2.0f) / 2) + (2 *  (RodMass * Mathf.Pow(RRadius, 2.0f) / 3));
         }
 
         // If Radius is changing than calculate Omega
@@ -74,7 +78,7 @@ public class PhysicsEngine : MonoBehaviour
             if (MMass != 0.0f && RRadius != 0.0f)
             {
                 // L = mr^2w --> w = L/mr^2
-                wOmega = LAngularMomentum / (MMass * Mathf.Pow(RRadius, 2.0f));
+                wOmega = LAngularMomentum / (MMass * Mathf.Pow((RRadius + BodyRadius), 2.0f));
             }
             else // (MMass == 0.0f || RRadius == 0.0f)
             {
@@ -83,8 +87,8 @@ public class PhysicsEngine : MonoBehaviour
             oldOmega = wOmega;
 
             // Because radius change recalculate intertia
-            // I = mr^2
-            IInertia = MMass * Mathf.Pow(RRadius, 2.0f);
+            // I = mr^2 / 2 + 2(mL^2 / 3)
+            IInertia = (MMass * Mathf.Pow(BodyRadius, 2.0f) / 2) + (2 * (RodMass * Mathf.Pow((RRadius + BodyRadius), 2.0f) / 3));
         }
 
         // If Omega is changing than calculate Radius
@@ -115,7 +119,7 @@ public class PhysicsEngine : MonoBehaviour
             if (MMass != 0.0f && RRadius != 0.0f)
             {
                 // L = mr^2w --> w = L/mr^2
-                wOmega = LAngularMomentum / (MMass * Mathf.Pow(RRadius, 2.0f));
+                wOmega = LAngularMomentum / (MMass * Mathf.Pow((RRadius + BodyRadius), 2.0f));
             }
             else // (MMass == 0.0f || RRadius == 0.0f)
             {
@@ -133,7 +137,7 @@ public class PhysicsEngine : MonoBehaviour
         if (LAngularMomentum == 0.0f && MMass != 0.0f && RRadius != 0.0f && wOmega != 0.0f)
         {
             // L = mr^2w
-            LAngularMomentum = MMass * Mathf.Pow(RRadius, 2.0f) * wOmega;
+            LAngularMomentum = MMass * Mathf.Pow((RRadius + BodyRadius), 2.0f) * wOmega;
         }
     }
 

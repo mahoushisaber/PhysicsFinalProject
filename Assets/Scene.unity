@@ -2535,10 +2535,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5fa9e80fc6ce1d45977a714aaeac463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LAngularMomentum: 6000
-  MMass: 55
-  RRadius: 0.754
+  LAngularMomentum: 20000
+  MMass: 52.5
+  RRadius: 0.9
   wOmega: 26
+  BodyRadius: 0.11
+  RodMass: 3.75
   IInertia: 0
   animator: {fileID: 1404424851}
 --- !u!4 &481341226
