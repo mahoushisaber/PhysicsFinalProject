@@ -14,8 +14,7 @@ public class PhysicsEngine : MonoBehaviour
     public float BodyRadius = 0.11f;
     public float RodMass = 3.75f;
 
-    [SerializeField]
-    private float IInertia;
+    public float IInertia;
 
     private float oldMMass;
     private float oldLAngularMomentum;
